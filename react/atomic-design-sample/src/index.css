@@ -1,0 +1,575 @@
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
+
+:root {
+  --bg: #f7f0e6;
+  --panel: #fff7ee;
+  --ink: #1f1b16;
+  --muted: #6f6254;
+  --line: #eadbcb;
+  --accent: #d35d3f;
+  --accent-2: #2f7a70;
+  --accent-3: #d8a860;
+  --ink-soft: rgba(31, 27, 22, 0.08);
+  --shadow: 0 20px 45px rgba(31, 27, 22, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo",
+    sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, rgba(211, 93, 63, 0.12), transparent 45%),
+    radial-gradient(circle at 20% 20%, rgba(47, 122, 112, 0.18), transparent 40%),
+    linear-gradient(140deg, #f8f0e6, #f4e5d7 55%, #f8efe7);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20% 0 auto 0;
+  height: 420px;
+  background: radial-gradient(circle at 30% 30%, rgba(216, 168, 96, 0.2), transparent 60%);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+  display: grid;
+  gap: 32px;
+}
+
+.unit {
+  position: relative;
+  outline: 2px dashed var(--unit-color);
+  outline-offset: 6px;
+}
+
+.unit::after {
+  content: var(--unit-label);
+  position: absolute;
+  top: -14px;
+  left: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--unit-color);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  z-index: 2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.unit-atom {
+  --unit-color: #2f7a70;
+  --unit-label: "原子";
+}
+
+.unit-molecule {
+  --unit-color: #d35d3f;
+  --unit-label: "分子";
+}
+
+.unit-organism {
+  --unit-color: #3b5a7a;
+  --unit-label: "有機体";
+}
+
+.unit-template {
+  --unit-color: #b8812a;
+  --unit-label: "テンプレート";
+}
+
+.unit-page {
+  --unit-color: #1f1b16;
+  --unit-label: "ページ";
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 18px;
+  align-content: center;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  letter-spacing: 0.4px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-panel {
+  background: var(--panel);
+  border-radius: 22px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.hero-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.hero-panel-title {
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+.hero-panel-note {
+  font-size: 0.95rem;
+}
+
+.hero-panel-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr);
+  gap: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 20px;
+}
+
+.panel--side {
+  gap: 22px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.panel-header p {
+  margin-top: 4px;
+}
+
+.panel-count {
+  align-self: flex-end;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.search-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+.search-count {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.session-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.session-card {
+  background: #fffdf9;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  animation: rise 0.5s ease both;
+}
+
+.session-card:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.session-card:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.session-card:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.session-card:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.session-card:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.session-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.session-time {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.session-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.session-host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.session-host p {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.session-host span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.side-block {
+  display: grid;
+  gap: 12px;
+}
+
+.side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.timeline li {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  background: #fffdf9;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+.timeline span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.timeline strong {
+  font-size: 0.95rem;
+}
+
+.tool-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.tool-card {
+  background: #fffdf9;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  padding: 12px;
+}
+
+.tool-card h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.tool-card p {
+  font-size: 0.85rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo",
+    sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--accent-2);
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(47, 122, 112, 0.25);
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.btn--accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(211, 93, 63, 0.25);
+}
+
+.btn--sm {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid transparent;
+}
+
+.badge--sand {
+  background: rgba(216, 168, 96, 0.15);
+  color: #8b5a28;
+  border-color: rgba(216, 168, 96, 0.4);
+}
+
+.badge--sunset {
+  background: rgba(211, 93, 63, 0.18);
+  color: #b04a31;
+  border-color: rgba(211, 93, 63, 0.4);
+}
+
+.badge--mint {
+  background: rgba(47, 122, 112, 0.18);
+  color: #1f5b53;
+  border-color: rgba(47, 122, 112, 0.35);
+}
+
+.badge--ink {
+  background: rgba(31, 27, 22, 0.12);
+  color: var(--ink);
+  border-color: rgba(31, 27, 22, 0.2);
+}
+
+.input {
+  display: grid;
+  gap: 6px;
+}
+
+.input-field {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-size: 1rem;
+  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Meiryo",
+    sans-serif;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: rgba(47, 122, 112, 0.6);
+  box-shadow: 0 0 0 3px rgba(47, 122, 112, 0.15);
+}
+
+.stat-card {
+  background: #fffdf9;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  display: grid;
+  gap: 6px;
+  animation: rise 0.5s ease both;
+}
+
+.stat-card span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.stat-card strong {
+  font-size: 1.4rem;
+}
+
+.stat-card em {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--ink-soft);
+}
+
+.avatar--mint {
+  background: rgba(47, 122, 112, 0.2);
+  color: #1f5b53;
+}
+
+.avatar--sunset {
+  background: rgba(211, 93, 63, 0.2);
+  color: #8f3a25;
+}
+
+.avatar--sand {
+  background: rgba(216, 168, 96, 0.25);
+  color: #8b5a28;
+}
+
+.avatar--ink {
+  background: rgba(31, 27, 22, 0.2);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .search-actions {
+    justify-items: start;
+  }
+
+  .session-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
